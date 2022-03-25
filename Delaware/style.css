@@ -1,0 +1,12 @@
+.topThreeCards{
+    padding:8em 1.3em;
+    padding-bottom: 3em;
+    display: flex;
+    column-gap: 5.7em ;
+  }
+
+  body{
+    background-color: #649494;
+  }
+
+  
