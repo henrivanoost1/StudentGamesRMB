@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -20,13 +21,64 @@ namespace API.Controllers
                 Social = 56,
                 Governance = 63,
             });
+            scores.Add(new ESGScore()
+            {
+                Naam = "Volvo",
+                ESGBedrijf = 93,
+                Environment = 94,
+                Social = 94,
+                Governance = 91,
+            });
+            scores.Add(new ESGScore()
+            {
+                Naam = "BMW",
+                ESGBedrijf = 84,
+                Environment = 90,
+                Social = 86,
+                Governance = 73,
+            });
+            scores.Add(new ESGScore()
+            {
+                Naam = "Mercedes",
+                ESGBedrijf = 92,
+                Environment = 98,
+                Social = 97,
+                Governance = 77,
+            });
+            scores.Add(new ESGScore()
+            {
+                Naam = "Ferarri",
+                ESGBedrijf = 83,
+                Environment = 81,
+                Social = 89,
+                Governance = 75,
+            });
+            scores.Add(
+           new ESGScore()
+           {
+               Naam = "Volkswagen",
+               ESGBedrijf = 28,
+               Environment = 32,
+               Social = 30,
+               Governance = 26,
+           });
+            scores.Add(
+            new ESGScore()
+            {
+                Naam = "Fiat",
+                ESGBedrijf = 89,
+                Environment = 86,
+                Social = 86,
+                Governance = 97,
+            }
+             );
         }
 
         //environment, governance , Product,Social
         [HttpGet]
         public IActionResult getItems()
         {
-            return Ok(scores);
+            return Ok(new { scores = scores.OrderByDescending(x => x.ESGBedrijf).ToList() });
         }
 
         [HttpGet("{zoekterm}")]

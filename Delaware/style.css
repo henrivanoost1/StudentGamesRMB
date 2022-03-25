@@ -1,8 +1,8 @@
 .topThreeCards{
-    padding:8em 1.3em;
+    padding:10em 1.5em;
     padding-bottom: 3em;
     display: flex;
-    column-gap: 5.7em ;
+    column-gap: 7.1em ;
   }
 
   body{
